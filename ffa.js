@@ -52,7 +52,7 @@ function updateCalculation() {
   const V = parseNumber(volumeEl.value);
 
   if (N === null || W === null || V === null) {
-    ffaEl.textContent = "--";
+    ffaEl.textContent = "0";
     return;
   }
 
@@ -71,13 +71,13 @@ function updateCalculation() {
   }
 
   if (hasError) {
-    ffaEl.textContent = "--";
+    ffaEl.textContent = "0";
     return;
   }
 
   // Perhitungan: (Volume * Normalitas * 25.6) / Berat
   const ffa = (V * N * 25.6) / W;
-  ffaEl.textContent = isFinite(ffa) ? ffa.toFixed(2) + " %" : "--";
+  ffaEl.textContent = isFinite(ffa) ? ffa.toFixed(2) + " %" : "0";
 }
 
 // Handler saat input
@@ -121,7 +121,7 @@ resetBtn.addEventListener("click", () => {
   verr.style.display = "none";
   weightEl.classList.remove("invalid");
   volumeEl.classList.remove("invalid");
-  ffaEl.textContent = "--";
+  ffaEl.textContent = "0";
   weightEl.focus();
 });
 
