@@ -1,0 +1,196 @@
+/* --- 1. Import Font & Global Reset --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+:root {
+  --background-start: #1f2641; /* Warna gradien latar belakang */
+  --background-end: #2d385e;
+  --glass-bg: rgba(255, 255, 255, 0.1); /* Warna panel kaca */
+  --border-color: rgba(255, 255, 255, 0.2);
+  --text-color: #f0f0f0;
+  --accent-color: #4a90e2;
+  --placeholder-color: #a0a0a0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- 2. Body & Latar Belakang --- */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--background-start),
+    var(--background-end)
+  );
+  color: var(--text-color);
+  min-height: 100vh; /* Memastikan body mengisi seluruh tinggi layar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* --- 3. Form Container (Efek Kaca) --- */
+form {
+  width: 100%;
+  max-width: 600px; /* Lebar maksimum form di layar besar */
+  padding: 1.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px); /* Efek blur inti dari glassmorphism */
+  -webkit-backdrop-filter: blur(15px); /* Untuk support Safari */
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem; /* Jarak antar elemen di dalam form */
+}
+
+/* --- 4. Styling Input, Label, dan Output --- */
+label {
+  font-weight: 600;
+  margin-bottom: -0.7rem; /* Mengurangi jarak ke input di bawahnya */
+}
+
+/* Grup input untuk Ton & FFA */
+.input-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Agar responsif jika layar terlalu sempit */
+}
+
+input[type="number"],
+output {
+  flex: 1; /* Membuat input berbagi ruang secara merata */
+  min-width: 120px; /* Lebar minimum sebelum pindah baris */
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+/* Menghilangkan panah di input number untuk tampilan lebih bersih */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::placeholder {
+  color: var(--placeholder-color);
+  font-weight: 300;
+}
+
+input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+output {
+  min-height: 48px; /* Menyamakan tinggi dengan input */
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* --- 5. Styling Tombol --- */
+button[type="reset"] {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="reset"]:hover {
+  background-color: #3a7ac8;
+  transform: translateY(-2px); /* Efek tombol terangkat sedikit */
+}
+
+button[type="reset"]:active {
+  transform: translateY(0); /* Mengembalikan posisi saat diklik */
+}
+
+/* --- 6. Responsiveness untuk HP (Ton & FFA tetap sejajar) --- */
+@media (max-width: 480px) {
+  form {
+    padding: 1rem; /* Kurangi padding di layar kecil */
+    gap: 0.6rem;
+  }
+
+  .input-group {
+    flex-wrap: nowrap; /* Paksa tetap sejajar */
+    gap: 8px; /* Lebih kecil agar muat */
+  }
+
+  .input-group input[type="number"] {
+    flex: 1;
+    min-width: 0; /* Hilangkan batas minimum 120px */
+    font-size: 0.9rem; /* Sedikit lebih kecil agar pas */
+    padding: 8px; /* Kurangi padding biar lega */
+  }
+
+  output {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  button[type="reset"] {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Tombol Kembali ke Home --- */
+.home-button {
+  position: fixed; /* Tetap di posisi yang sama saat di-scroll */
+  bottom: 25px; /* Jarak dari bawah */
+  left: 25px; /* Jarak dari kiri */
+  width: 50px; /* Lebar tombol */
+  height: 50px; /* Tinggi tombol */
+  background: rgba(255, 255, 255, 0.1); /* Efek kaca yang sama */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%; /* Membuatnya menjadi lingkaran */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none; /* Menghilangkan garis bawah dari link */
+}
+
+/* Membuat ikon panah menggunakan CSS Pseudo-element */
+.home-button::before {
+  content: "";
+  width: 10px; /* Lebar garis panah */
+  height: 10px; /* Tinggi garis panah */
+  border-left: 3px solid #f0f0f0; /* Garis kiri panah */
+  border-bottom: 3px solid #f0f0f0; /* Garis bawah panah */
+  transform: rotate(45deg); /* Memutar bentuk L menjadi panah */
+  margin-left: 4px; /* Sedikit penyesuaian posisi panah */
+}
+
+/* Efek saat kursor mouse di atas tombol */
+.home-button:hover {
+  background: rgba(74, 144, 226, 0.3); /* Warna aksen dengan transparansi */
+  transform: scale(1.1); /* Sedikit memperbesar tombol */
+}
