@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accurate Calculator</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="shortcut icon" href="./assets/home.png" type="image/x-icon" />
+  </head>
+  <body>
+    <nav>
+      <h1>Accurate Calculator</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Download</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="card-container">
+        <a href="blending.html" class="card">Blending CPO</a>
+        <a href="ffa.html" class="card">Free Fatty Acid (FFA) CPO</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; Rizki Munanda <span id="thisYear"></span></p>
+    </footer>
+
+    <script>
+      document.getElementById("thisYear").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>

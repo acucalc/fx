@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="oil.png" />
+    <title>Blending CPO</title>
+    <link rel="stylesheet" href="./assets/blending.css" />
+  </head>
+  <body>
+    <form>
+      <label for="tonST1">Storage 1:</label>
+      <div class="input-group">
+        <input type="number" name="tonST1" id="tonST1" placeholder="Ton" />
+        <input
+          type="number"
+          name="FFAST1"
+          id="FFAST1"
+          placeholder="FFA"
+          step="0.01"
+        />
+      </div>
+
+      <label for="tonST2">Storage 2:</label>
+      <div class="input-group">
+        <input type="number" name="tonST2" id="tonST2" placeholder="Ton" />
+        <input
+          type="number"
+          name="FFAST2"
+          id="FFAST2"
+          placeholder="FFA"
+          step="0.01"
+        />
+      </div>
+
+      <label for="tonOT1">Oil Tank 1:</label>
+      <div class="input-group">
+        <input type="number" name="tonOT1" id="tonOT1" placeholder="Ton" />
+        <input
+          type="number"
+          name="FFAOT1"
+          id="FFAOT1"
+          placeholder="FFA"
+          step="0.01"
+        />
+      </div>
+
+      <label for="tonOT2">Oil Tank 2:</label>
+      <div class="input-group">
+        <input type="number" name="tonOT2" id="tonOT2" placeholder="Ton" />
+        <input
+          type="number"
+          name="FFAOT2"
+          id="FFAOT2"
+          placeholder="FFA"
+          step="0.01"
+        />
+      </div>
+
+      <label for="tonRec">Recovery:</label>
+      <div class="input-group">
+        <input type="number" name="tonRec" id="tonRec" placeholder="Ton" />
+        <input
+          type="number"
+          name="FFARec"
+          id="FFARec"
+          placeholder="FFA"
+          step="0.01"
+        />
+      </div>
+
+      <label for="tonOER">OER:</label>
+      <div class="input-group">
+        <input type="number" name="tonOER" id="tonOER" placeholder="Ton" />
+        <input
+          type="number"
+          name="FFAOER"
+          id="FFAOER"
+          placeholder="FFA"
+          step="0.01"
+        />
+      </div>
+
+      <label for="output">FFA Hasil Blending:</label>
+      <output id="output"></output>
+
+      <button type="reset">RESET</button>
+    </form>
+    <a
+      href="index.html"
+      class="home-button"
+      aria-label="Kembali ke Beranda"
+    ></a>
+    <script src="./assets/blending.js"></script>
+  </body>
+</html>
